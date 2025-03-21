@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { validZipCodes } from "@/lib/validZipCodes";
+import { isValidZipCode } from "@/lib/validZipCodes";
 
 interface ZipCodeFormProps {
   onZipCodeValid: (zipCode: string) => void;
@@ -30,7 +30,7 @@ export default function ZipCodeForm({ onZipCodeValid }: ZipCodeFormProps) {
     
     // Simulate API call with a short delay
     setTimeout(() => {
-      if (validZipCodes.includes(zipCode)) {
+      if (isValidZipCode(zipCode)) {
         onZipCodeValid(zipCode);
       } else {
         setError("Sorry, we don't service this area yet");
